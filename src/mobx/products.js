@@ -1,26 +1,27 @@
-import { observable, action } from 'mobx'
-import axios from 'axios'
+import { observable, action } from 'mobx';
+import axios from 'axios';
+
 class ProductsStore {
   @observable list = []
 
-  async load () {
-    let { data } = await axios.get(`https://jsonplaceholder.typicode.com/users`);
+  async load() {
+    const { data } = await axios.get('https://jsonplaceholder.typicode.com/users');
     this.set(data);
   }
 
   @action
   set(list = []) {
-    this.list = list
+    this.list = list;
   }
 
   @action
   get() {
-    return this.list
+    return this.list;
   }
 
   @action
   add(order) {
-    this.list.push(order)
+    this.list.push(order);
   }
 
 }

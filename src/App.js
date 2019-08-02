@@ -6,51 +6,41 @@
  * @flow
  */
 
-import React, {Fragment} from 'react';
+import React, { Fragment } from 'react';
+import { Provider } from 'mobx-react';
+
 import {
   SafeAreaView,
   StyleSheet,
   ScrollView,
-  View,
-  Text,
-  StatusBar,
-  Navigator
+  StatusBar
 } from 'react-native';
 
 import {
-  Header,
-  LearnMoreLinks,
-  Colors,
-  DebugInstructions,
-  ReloadInstructions,
+  Colors
 } from 'react-native/Libraries/NewAppScreen';
 
-import ProductsStore from 'app/src/mobx/products'
-import { Provider } from 'mobx-react'
-import Products from 'app/src/pages/products'
-import products from './pages/products';
-const App = () => {
-  return (
-    <Provider store={
-      {
-        products: ProductsStore
-      }
-    }>
+import ProductsStore from './mobx/products';
+import Products from './pages/products';
 
+const App = () => (
+  <Provider appStore={{
+    products: ProductsStore
+  }}
+  >
     <Fragment>
       <StatusBar barStyle="dark-content" />
       <SafeAreaView>
         <ScrollView
           contentInsetAdjustmentBehavior="automatic"
-          style={styles.scrollView}>
-            <Products />
+          style={styles.scrollView}
+        >
+          <Products />
         </ScrollView>
       </SafeAreaView>
     </Fragment>
-    </Provider>
-
-  );
-};
+  </Provider>
+);
 
 const styles = StyleSheet.create({
   scrollView: {
