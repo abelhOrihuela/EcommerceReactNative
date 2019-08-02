@@ -20,8 +20,8 @@ import {
   Colors
 } from 'react-native/Libraries/NewAppScreen';
 
-import ProductsStore from './mobx/products';
-import Products from './pages/products';
+import ProductsStore from 'app/src/mobx/products';
+import Products from 'app/src/pages/products';
 
 const App = () => (
   <Provider appStore={{

@@ -5,7 +5,7 @@ class ProductsStore {
   @observable list = []
 
   async load() {
-    const { data } = await axios.get('https://jsonplaceholder.typicode.com/users');
+    const { data } = await axios.get('https://jsonplaceholder.typicode.com/todos');
     this.set(data);
   }
 
