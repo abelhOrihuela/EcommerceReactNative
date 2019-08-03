@@ -38,9 +38,14 @@ class Products extends Component {
 
 
     return (
-      <View>
+      <View style={{
+        margin: 5,
+        backgroundColor: 'white'
+      }}
+      >
+        <Text>Hola</Text>
         <FlatList
-          numColumns={2}
+          numColumns={1}
           data={
             products.get().map(l => l)
           }
