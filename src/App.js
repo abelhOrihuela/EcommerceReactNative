@@ -20,7 +20,7 @@ import {
 } from 'react-native/Libraries/NewAppScreen';
 
 import ProductsStore from 'app/src/mobx/products';
-import Products from 'app/src/pages/products';
+import Products from 'app/src/pages/app/products';
 
 const App = () => (
   <Provider appStore={{
