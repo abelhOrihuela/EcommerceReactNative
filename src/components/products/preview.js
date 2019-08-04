@@ -1,12 +1,6 @@
-import React, { Component } from 'react';
-import { Text, View, Image, Platform } from 'react-native';
-import { Card, ListItem, Button, Icon } from 'react-native-elements';
-
-
+import React from 'react';
+import { Text, View, Image } from 'react-native';
 import { general } from 'app/src/styles/general';
-
-
-console.log('general.margin', general.margin);
 
 const Preview = ({ item }) => (
   <View style={

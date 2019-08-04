@@ -11,7 +11,6 @@ import { Provider } from 'mobx-react';
 
 import {
   SafeAreaView,
-  StyleSheet,
   ScrollView,
   StatusBar
 } from 'react-native';
@@ -29,11 +28,16 @@ const App = () => (
   }}
   >
     <Fragment>
-      <StatusBar barStyle="dark-content" />
+      <StatusBar
+        barStyle="dark-content"
+        hidden={false}
+      />
       <SafeAreaView>
         <ScrollView
           contentInsetAdjustmentBehavior="automatic"
-          style={styles.scrollView}
+          style={{
+            backgroundColor: Colors.white
+          }}
         >
           <Products />
         </ScrollView>
@@ -41,44 +45,5 @@ const App = () => (
     </Fragment>
   </Provider>
 );
-
-const styles = StyleSheet.create({
-  scrollView: {
-    backgroundColor: Colors.white,
-  },
-  engine: {
-    position: 'absolute',
-    right: 0,
-  },
-  body: {
-    backgroundColor: Colors.white,
-  },
-  sectionContainer: {
-    marginTop: 32,
-    paddingHorizontal: 24,
-  },
-  sectionTitle: {
-    fontSize: 24,
-    fontWeight: '600',
-    color: Colors.black,
-  },
-  sectionDescription: {
-    marginTop: 8,
-    fontSize: 18,
-    fontWeight: '400',
-    color: Colors.dark,
-  },
-  highlight: {
-    fontWeight: '700',
-  },
-  footer: {
-    color: Colors.dark,
-    fontSize: 12,
-    fontWeight: '600',
-    padding: 4,
-    paddingRight: 12,
-    textAlign: 'right',
-  },
-});
 
 export default App;
