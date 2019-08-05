@@ -43,7 +43,6 @@ class Products extends Component {
         backgroundColor: 'white'
       }}
       >
-        <Text>Hola</Text>
         <FlatList
           numColumns={1}
           data={

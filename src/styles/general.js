@@ -4,13 +4,21 @@ import {
 import { StyleSheet, Platform } from 'react-native';
 
 
-console.log('Colors', Colors)
 const styles = StyleSheet.create({
   scrollView: {
     backgroundColor: Colors.white,
   },
   isMargin: {
     margin: 5,
+  },
+  isPadding: {
+    padding: 5,
+  },
+  isMarginDouble: {
+    margin: 10,
+  },
+  isPaddingDouble: {
+    padding: 10,
   },
   isRow: {
     flexDirection: 'row'
@@ -26,6 +34,11 @@ const styles = StyleSheet.create({
   },
   is3: {
     flex: 3
+  },
+  isButton: {
+    // margin: 5,
+    padding: 5,
+    borderRadius: 5
   },
   isPricing: {
     fontSize: 20

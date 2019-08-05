@@ -1,6 +1,21 @@
 import React from 'react';
 import { Text, View, Image } from 'react-native';
 import { general } from 'app/src/styles/general';
+import Xiaomi from 'app/src/img/xiaomi.jpg';
+import Lamp from 'app/src/img/lamp.jpg';
+import Lamp2 from 'app/src/img/lamp2.jpg';
+
+const getImage = () => {
+  const images = [
+    Xiaomi,
+    Lamp2,
+    Lamp
+  ];
+
+  let position = parseInt(Math.random() * 5);
+
+  return images[position] || Xiaomi;
+};
 
 const Preview = ({ item }) => (
   <View style={
@@ -28,7 +43,7 @@ const Preview = ({ item }) => (
             width: 100
           }
         ]}
-        source={{ uri: 'https://via.placeholder.com/600/24f355' }}
+        source={getImage()}
       />
     </View>
     <View style={[
