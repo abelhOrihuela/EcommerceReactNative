@@ -17,7 +17,26 @@ export default class Signin extends Component {
     const {
       navigation
     } = this.props;
-    navigation.navigate('App');
+
+    const value = this.form.getValue();
+
+    console.log('value', value)
+
+    // if (value) {
+    //   this.props.onSubmit(value)
+    // }
+    // navigation.navigate('App');
+  }
+
+  // onSubmit(e) {
+  //   const value = this._form.getValue()
+  //   if (value) {
+  //     this.props.onSubmit(value)
+  //   }
+  // }
+
+  onChange = (e) => {
+    this.props.onChange(e);
   }
 
   render() {
@@ -31,13 +50,15 @@ export default class Signin extends Component {
       fields: {
         email: {
           label: null,
-          placeholder: 'Correo electronico'
+          placeholder: 'Correo electronico',
+          error: 'Insert a valid email'
         },
         password: {
           label: null,
           password: true,
           secureTextEntry: true,
-          placeholder: 'Contraseña'
+          placeholder: 'Contraseña',
+          error: 'Insert a valid email'
         }
       }
     };
@@ -45,7 +66,6 @@ export default class Signin extends Component {
     return (
       <View
         style={[
-          // general.isMargin,
           general.isPaddingDouble,
           {
             flex: 1,
@@ -57,6 +77,7 @@ export default class Signin extends Component {
           ref={c => (this.form = c)}
           type={User}
           options={options}
+          onChange={this.onChange}
         />
 
         <TouchableOpacity
