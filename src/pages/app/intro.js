@@ -1,8 +1,35 @@
 import React from 'react';
 import { Text, View, TouchableOpacity } from 'react-native';
+import AsyncStorage from '@react-native-community/async-storage';
 import { general } from 'app/src/styles/general';
+import { inject, observer } from 'mobx-react';
 
-export default class Intro extends React.PureComponent {
+class Intro extends React.PureComponent {
+  async componentDidMount() {
+    this.loadProducts();
+  }
+
+  loadProducts = async () => {
+    const {
+      appStore: { products }
+    } = this.props;
+
+    await products.load();
+    this.checkUserSession();
+  }
+
+  checkUserSession = async () => {
+    const {
+      navigation
+    } = this.props;
+
+    const logged = await AsyncStorage.getItem('logged');
+
+    if (JSON.parse(logged)) {
+      navigation.navigate('App');
+    }
+  }
+
   render() {
     return (
       <View style={[
@@ -46,3 +73,5 @@ export default class Intro extends React.PureComponent {
     );
   }
 }
+
+export default inject('appStore')(observer(Intro));

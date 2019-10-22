@@ -7,21 +7,20 @@ class Products extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      loading: true,
+      loading: false,
     };
   }
 
-  async componentDidMount() {
-    const {
-      appStore: { products }
-    } = this.props;
+  // async componentDidMount() {
+  //   const {
+  //     appStore: { products }
+  //   } = this.props;
 
-    await products.load();
-    this.setState({
-      loading: false
-    });
-
-  }
+  //   await products.load();
+  //   this.setState({
+  //     loading: false
+  //   });
+  // }
 
   render() {
     const {

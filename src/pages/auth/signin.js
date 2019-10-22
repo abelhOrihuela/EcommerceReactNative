@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
 import { View, Text, TouchableOpacity } from 'react-native';
+import AsyncStorage from '@react-native-community/async-storage';
 import t from 'tcomb-form-native';
 import { general } from 'app/src/styles/general';
-
-var { Form } = t.form;
-
+const { Form } = t.form;
 
 export default class Signin extends Component {
   constructor(props) {
@@ -13,36 +12,22 @@ export default class Signin extends Component {
     };
   }
 
-  handlePress = () => {
+  handlePress = async () => {
     const {
       navigation
     } = this.props;
 
     const value = this.form.getValue();
-
-    console.log('value', value)
-
-    // if (value) {
-    //   this.props.onSubmit(value)
-    // }
-    // navigation.navigate('App');
-  }
-
-  // onSubmit(e) {
-  //   const value = this._form.getValue()
-  //   if (value) {
-  //     this.props.onSubmit(value)
-  //   }
-  // }
-
-  onChange = (e) => {
-    this.props.onChange(e);
+    await AsyncStorage.setItem('logged', JSON.stringify(true));
+    if (value) {
+      navigation.navigate('App');
+    }
   }
 
   render() {
     const User = t.struct({
       email: t.String,
-      password: t.maybe(t.String)
+      password: t.String
     });
 
     const options = {

@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import { Text, View, Image } from 'react-native';
 import { general } from 'app/src/styles/general';
 import Xiaomi from 'app/src/img/xiaomi.jpg';
 import Lamp from 'app/src/img/lamp.jpg';
 import Lamp2 from 'app/src/img/lamp2.jpg';
+import { Icon } from 'react-native-elements';
 
 const getImage = () => {
   const images = [
@@ -22,57 +23,82 @@ const Preview = ({ item }) => (
     [
       general.isShadow,
       general.isMargin,
-      general.isRow,
     ]
   }
   >
-    <View style={[
-      general.isColumn,
-      general.isFlex2,
-      general.is1,
-      general.isMargin,
-      {
-        alignItems: 'center'
-      }
-    ]}
+    <View style={
+      [
+        // general.isMargin,
+        general.isRow,
+      ]
+    }
     >
-      <Image
-        style={[
-          {
-            height: 100,
-            width: 100
-          }
+      <View style={[
+        general.isColumn,
+        general.isFlex2,
+        general.is1,
+        general.isMargin,
+        {
+          alignItems: 'center'
+        }
+      ]}
+      >
+        <Image
+          style={[
+            {
+              height: 100,
+              width: 100
+            }
+          ]}
+          source={getImage()}
+        />
+      </View>
+      <View style={[
+        general.isColumn,
+        general.isMargin,
+        general.is2
+      ]}
+      >
+        <Text>
+          {item.title}
+        </Text>
+        <Text style={[
+          general.isPricing
         ]}
-        source={getImage()}
-      />
+        >
+          $200.00
+      </Text>
+        <Text style={[
+          general.isOffer
+        ]}
+        >
+          {item.title}
+        </Text>
+
+      </View>
     </View>
     <View style={[
-      general.isColumn,
-      general.isMargin,
-      general.is2
-    ]}
-    >
-      <Text>
-        {item.title}
-      </Text>
-      <Text style={[
-        general.isPricing
-      ]}
+      general.isMargin
+    ]}>
+      <View style={
+        [
+          general.isMargin,
+          general.isRow,
+          {
+            justifyContent: 'space-between',
+            flex: 1
+          }
+        ]
+      }
       >
-        $200.00
+        <Text style={[
+          general.isStock,
+        ]}
+        >
+          Stock: 20
       </Text>
-      <Text style={[
-        general.isOffer
-      ]}
-      >
-        {item.title}
-      </Text>
-      <Text style={[
-        general.isStock
-      ]}
-      >
-        Stock: 20
-      </Text>
+        <Icon type="font-awesome" color="black" name="shopping-cart" />
+      </View>
     </View>
   </View>
 );
